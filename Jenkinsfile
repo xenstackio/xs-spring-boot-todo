@@ -23,7 +23,7 @@ pipeline {
         }
         stage('Long-running Verification') {
             environment {
-                SONAR_LOGIN = credentials('0cbf47c3ba023e6a40c622b02c0a83c58033bd1244')
+                SONAR_LOGIN = credentials('SONARCLOUD_TOKEN')
             }
             parallel {
                 stage('Integration Tests') {
