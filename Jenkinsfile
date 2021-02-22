@@ -21,12 +21,6 @@ pipeline {
                 }
             }
         }
-        stage('Long-running Verification') {
-            environment {
-                SONAR_LOGIN = credentials('SONARCLOUD_TOKEN')
-            }
-            
-        }
         stage('Assemble') {
             steps {
                 gradlew('assemble')
