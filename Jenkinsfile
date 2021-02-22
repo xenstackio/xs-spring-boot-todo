@@ -25,19 +25,7 @@ pipeline {
             environment {
                 SONAR_LOGIN = credentials('SONARCLOUD_TOKEN')
             }
-            parallel {
-                stage('Integration Tests') {
-                    steps {
-                        gradlew('integrationTest')
-                    }
-                    post {
-                        always {
-                            junit '**/build/test-results/integrationTest/TEST-*.xml'
-                        }
-                    }
-                }
-                
-            }
+            
         }
         stage('Assemble') {
             steps {
