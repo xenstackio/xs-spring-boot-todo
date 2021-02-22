@@ -36,11 +36,7 @@ pipeline {
                         }
                     }
                 }
-                stage('Code Analysis') {
-                    steps {
-                        gradlew('sonarqube')
-                    }
-                }
+                
             }
         }
         stage('Assemble') {
@@ -56,6 +52,9 @@ pipeline {
                 }
             }
         }
+
+    }
+}
 
 def gradlew(String... args) {
     sh "./gradlew ${args.join(' ')} -s"
